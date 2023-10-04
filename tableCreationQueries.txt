@@ -1,0 +1,127 @@
+CREATE TABLE `carrwi96`.`paper` (
+  `paper_id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(85) NOT NULL,
+  `date_written` DATE NOT NULL,
+  `full_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`paper_id`));
+
+CREATE TABLE `carrwi96`.`author` (
+  `author_id` INT NOT NULL AUTO_INCREMENT,
+  `DTYPE` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`author_id`));
+
+CREATE TABLE `carrwi96`.`organization` (
+  `organization_id` INT NOT NULL AUTO_INCREMENT,
+  `author_id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`organization_id`),
+  INDEX `author_id_idx` (`author_id` ASC) VISIBLE,
+  CONSTRAINT `author_id`
+    FOREIGN KEY (`author_id`)
+    REFERENCES `carrwi96`.`author` (`author_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
+CREATE TABLE `carrwi96`.`writer` (
+  `writer_id` INT NOT NULL AUTO_INCREMENT,
+  `author_id` INT NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`writer_id`),
+  INDEX `author_id_idx` (`author_id` ASC) INVISIBLE,
+  CONSTRAINT `author__id`
+    FOREIGN KEY (`author_id`)
+    REFERENCES `carrwi96`.`author` (`author_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
+CREATE TABLE `carrwi96`.`source` (
+  `source_id` INT NOT NULL AUTO_INCREMENT,
+  `author_id` INT NOT NULL,
+  `title` VARCHAR(85) NOT NULL,
+  `source_DTYPE` VARCHAR(45) NOT NULL,
+  `date_published` DATE NULL,
+  PRIMARY KEY (`source_id`),
+  INDEX `primary_author_idx` (`author_id` ASC) VISIBLE,
+  CONSTRAINT `primary_author`
+    FOREIGN KEY (`author_id`)
+    REFERENCES `carrwi96`.`author` (`author_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
+CREATE TABLE `carrwi96`.`book` (
+  `book_id` INT NOT NULL AUTO_INCREMENT,
+  `source_id` INT NOT NULL,
+  `isbn` VARCHAR(45) NOT NULL,
+  `publisher` VARCHAR(45) NULL,
+  PRIMARY KEY (`book_id`),
+  INDEX `source_idx` (`source_id` ASC) VISIBLE,
+  CONSTRAINT `source`
+    FOREIGN KEY (`source_id`)
+    REFERENCES `carrwi96`.`source` (`source_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
+CREATE TABLE `carrwi96`.`journal` (
+  `journal_id` INT NOT NULL AUTO_INCREMENT,
+  `source_id` INT NOT NULL,
+  `journal_title` VARCHAR(45) NOT NULL,
+  `volume` VARCHAR(45) NULL,
+  `issue` VARCHAR(45) NULL,
+  PRIMARY KEY (`journal_id`),
+  INDEX `source_idx` (`source_id` ASC) VISIBLE,
+  CONSTRAINT `source_id`
+    FOREIGN KEY (`source_id`)
+    REFERENCES `carrwi96`.`source` (`source_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
+CREATE TABLE `carrwi96`.`website` (
+  `idwebsite` INT NOT NULL AUTO_INCREMENT,
+  `source_id` INT NOT NULL,
+  `url` VARCHAR(255) NOT NULL,
+  `date_accessed` DATE NULL,
+  PRIMARY KEY (`idwebsite`),
+  INDEX `souce-id_idx` (`source_id` ASC) VISIBLE,
+  CONSTRAINT `FK_website_source`
+    FOREIGN KEY (`source_id`)
+    REFERENCES `carrwi96`.`source` (`source_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE `carrwi96`.`cite_source_paper` (
+  `citation_id` INT NOT NULL AUTO_INCREMENT,
+  `paper_id` INT NOT NULL,
+  `source_id` INT NOT NULL,
+  PRIMARY KEY (`citation_id`),
+  INDEX `FK_cite_paper_idx` (`paper_id` ASC) VISIBLE,
+  INDEX `FK_cite_source_idx` (`source_id` ASC) VISIBLE,
+  CONSTRAINT `FK_cite_source`
+    FOREIGN KEY (`source_id`)
+    REFERENCES `carrwi96`.`source` (`source_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT,
+  CONSTRAINT `FK_cite_paper`
+    FOREIGN KEY (`paper_id`)
+    REFERENCES `carrwi96`.`paper` (`paper_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
+CREATE TABLE `carrwi96`.`coauthor` (
+  `coauthor_id` INT NOT NULL AUTO_INCREMENT,
+  `author_id` INT NOT NULL,
+  `source_id` INT NOT NULL,
+  PRIMARY KEY (`coauthor_id`),
+  INDEX `FK_coauthor_author_idx` (`author_id` ASC) VISIBLE,
+  INDEX `FK_coauthor_source_idx` (`source_id` ASC) VISIBLE,
+  CONSTRAINT `FK_coauthor_author`
+    FOREIGN KEY (`author_id`)
+    REFERENCES `carrwi96`.`author` (`author_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT,
+  CONSTRAINT `FK_coauthor_source`
+    FOREIGN KEY (`source_id`)
+    REFERENCES `carrwi96`.`source` (`source_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
