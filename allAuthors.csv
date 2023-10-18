@@ -1,0 +1,18 @@
+author_id,DTYPE,first_name,last_name,"Organization Name"
+1,writer,Barry,Bosworth,NULL
+2,writer,Gary,Burtless,NULL
+3,writer,Sylvester,Schieber,NULL
+4,writer,John,Shoven,NULL
+5,writer,Shruti,Shah,NULL
+6,writer,Scott,Gelfland,NULL
+7,writer,John,Shook,NULL
+8,writer,Leslie,Cannold,NULL
+9,writer,Mary,Carolan,NULL
+10,writer,Jennifer,Couzin-Frankel,NULL
+11,writer,Dena,Davis,NULL
+12,writer,Christine,Rosen,NULL
+13,writer,Yoni,Wilkenfeld,NULL
+14,writer,Falon,Fatemi,NULL
+15,writer,Adam,Keiper,NULL
+16,writer,Ari,Schulman,NULL
+17,organization,NULL,NULL,ConsumerAffairs

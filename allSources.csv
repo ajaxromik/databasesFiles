@@ -1,0 +1,14 @@
+source_id,author_id,title,date_published,source_DTYPE,journal_title,volume,issue,isbn,publisher,url,date_accessed
+1,1,"Privatizing Social Security: The Troubling Trade-Offs",2017-05-10,website,NULL,NULL,NULL,NULL,NULL,www.brookings.edu/research/privatizing-social-security-the-troubling-trade-offs/,2019-03-03
+2,17,Vanguard,2019-03-07,website,NULL,NULL,NULL,NULL,NULL,"www.consumeraffairs.com/automated-investment-services/vanguard.html
+Links to an external site.",2019-03-03
+3,3,"The Real Deal: The History and Future of Social Security",1999-09-10,book,NULL,NULL,NULL,9780300081497,"Yale University Press",NULL,NULL
+4,5,"Top Six Risks for Private Equity Firms",2018-06-21,journal,"Forbes Magazine",NULL,NULL,NULL,NULL,NULL,NULL
+5,6,"Ectogenesis: Artificial Womb Technology and the Future of Human Reproduction",2006-10-05,book,NULL,NULL,NULL,978904202081,Rodopi,NULL,NULL
+6,9,"The Graying of the Obstetric Population: Implications for the Older Mother",2003-01-01,journal,"Journal of Obstetric, Gynecologic and Neonatal Nursing",32,1,NULL,NULL,NULL,NULL
+7,10,"Fluid-Filled 'Biobag' Allows Premature Lambs to Develop Outside the Womb",2017-04-25,journal,Science,NULL,NULL,NULL,NULL,NULL,NULL
+8,11,"Could We Be Marsupials? Very Premature Babies and Artificial Wombs",2019-02-21,website,NULL,NULL,NULL,NULL,NULL,https://onlinelibrary.wiley.com/doi/full/10.1002/hast.968,2019-04-03
+9,12,"Why Not Artificial Wombs?",2003-09-13,journal,"The New Atlantis",NULL,3,NULL,NULL,NULL,NULL
+10,13,"Can Chess Survive Artificial Intelligence?",2019-03-15,journal,"The New Atlantis",NULL,58,NULL,NULL,NULL,NULL
+11,14,"3 Ways Artificial Intelligence Is Transforming Business Operations",2019-05-29,journal,"Forbes Magazine",NULL,NULL,NULL,NULL,NULL,NULL
+12,15,"The Problem with 'Friendly' Artificial Intelligence",2011-06-15,journal,"The New Atlantis",NULL,32,NULL,NULL,NULL,NULL
