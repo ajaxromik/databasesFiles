@@ -1,2 +1,4 @@
 # ignores the hide/ folder
 hide/
+
+mongoimport.txt
